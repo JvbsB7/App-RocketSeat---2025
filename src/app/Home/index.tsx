@@ -1,9 +1,14 @@
 import { View, Image} from 'react-native' 
-import { Button } from '@/components/Button';
-import { styles } from './styles';
-import { Input } from '@/components/Input';
-import { Filter } from '@/components/Filter';
-import { FilterStatus } from '@/types/FilterStatus';
+
+import { Button } from '@/components/Button'
+
+import { styles } from './styles'
+
+import { Input } from '@/components/Input'
+
+import { Filter } from '@/components/Filter'
+
+import { FilterStatus } from '@/types/FilterStatus'
 
 export function Home(){
   return (
