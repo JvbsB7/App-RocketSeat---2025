@@ -6,6 +6,8 @@ import { styles } from "./styles"
 
 import {FilterStatus} from '@/types/FilterStatus'
 
+import {StatusIcon} from '../StatusIcon'
+
 
 type Props = TouchableOpacityProps & {
     status: FilterStatus;
@@ -20,7 +22,7 @@ export function Filter({ status, isActive, ...rest }: Props){
          {...rest}
          >
 
-        <CircleCheck size={12} color='#000' />
+            <StatusIcon status={status} />
 
             <Text style={styles.title}>
                 {status === FilterStatus.DONE ? 'Comprados' : 'Pendentes'}
