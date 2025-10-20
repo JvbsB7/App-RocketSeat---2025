@@ -8,7 +8,7 @@ import { Filter } from '@/components/Filter'
 import { styles } from './styles'
 import { FilterStatus } from '@/types/FilterStatus'
 import { Item } from '@/components/Item'
-import { itemsStorage, ItemStorage } from '@/storage/itemsStorage'
+import { itemsStorage, ItemsStorage } from '@/storage/itemsStorage'
 
 const FILTER_STATUS: FilterStatus[] = [FilterStatus.PENDING , FilterStatus.DONE]
 
@@ -16,9 +16,9 @@ const FILTER_STATUS: FilterStatus[] = [FilterStatus.PENDING , FilterStatus.DONE]
 export function Home(){
   const [filter, setFilter] = useState(FilterStatus.PENDING)
   const [description, setDescription] = useState('')
-  const [items , setItems] = useState <ItemStorage[]>([])
+  const [items , setItems] = useState <ItemsStorage[]>([])
 
-  function handleAdd(){
+  async function handleAdd(){
     if(!description.trim()){
       return Alert.alert('Adicionar', 'Informe a descrição para adicionar')
   }
@@ -28,6 +28,9 @@ export function Home(){
     description,
     status: FilterStatus.PENDING
   }
+
+  await itemsStorage.add(newItem)
+  await getItems()
 }
 
 
