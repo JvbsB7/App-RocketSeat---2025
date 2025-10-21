@@ -31,6 +31,11 @@ export function Home(){
 
   await itemsStorage.add(newItem)
   await itemsByStatus()
+
+
+  setFilter(FilterStatus.PENDING)
+  Alert.alert("Adicionado", `Adicionado ${description}`)
+  setDescription('')
 }
 
 
@@ -55,6 +60,7 @@ useEffect(() => {
       <View style={styles.form}>
       <Input placeholder='O que você precisa comprar?'
        onChangeText={setDescription}
+       value={description}
        />
 
       <Button title="Adicionar" onPress={handleAdd} />
